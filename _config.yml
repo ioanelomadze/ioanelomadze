@@ -4,3 +4,8 @@ baseurl: "/ioanelomadze"
 url: "https://ioanelomadze.github.io"
 
 markdown: kramdown
+
+collections:
+  poems:
+    output: true
+    permalink: /poems/:name/
