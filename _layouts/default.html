@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="site-header">
+    <a class="site-title" href="{{ site.baseurl }}/">იოანე ლომაძე</a>
+
+    <nav>
+      <a href="{{ site.baseurl }}/">მთავარი</a>
+      <a href="{{ site.baseurl }}/poems.html">ლექსები</a>
+      <a href="{{ site.baseurl }}/about.html">ჩემ შესახებ</a>
+      <a href="{{ site.baseurl }}/contact.html">კონტაქტი</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  {{ content }}
+</main>
+
+<footer>
+  © 2026 იოანე ლომაძე
+</footer>
+
+</body>
+</html>
