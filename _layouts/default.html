@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="ka">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>{{ page.title }} - {{ site.title }}</title>
   <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
 </head>
 
 <body>
 
-<header>
-  <div class="site-header">
-    <a class="site-title" href="{{ site.baseurl }}/">იოანე ლომაძე</a>
+  <header class="site-header">
+    <a class="site-logo" href="{{ site.baseurl }}/">არ-შემდგარი პოეტი</a>
 
-    <nav>
+    <nav class="site-nav">
       <a href="{{ site.baseurl }}/">მთავარი</a>
       <a href="{{ site.baseurl }}/poems.html">ლექსები</a>
       <a href="{{ site.baseurl }}/about.html">ჩემ შესახებ</a>
       <a href="{{ site.baseurl }}/contact.html">კონტაქტი</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main>
-  {{ content }}
-</main>
+  <main>
+    {{ content }}
+  </main>
 
-<footer>
-  © 2026 იოანე ლომაძე
-</footer>
+  <footer class="site-footer">
+    © 2026 იოანე ლომაძე
+  </footer>
 
 </body>
+
 </html>
