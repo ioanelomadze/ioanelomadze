@@ -1,51 +1,3070 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    color: #2c3e50;
-    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #080808;
+    color: #f5f1e8;
 }
 
-header {
-    background-color: #2c3e50;
-    padding: 20px;
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8, 8, 8, 0.82);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    padding: 40px 20px;
-}
-
-h1 {
-    color: #2c3e50;
-}
-
-.poem-list a {
-    color: #3498db;
+.site-logo {
+    color: #d4af37;
     text-decoration: none;
     font-size: 22px;
-    display: block;
-    margin: 18px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.poem-list a:hover {
+.site-nav a {
+    color: #f5f1e8;
+    text-decoration: none;
+    margin-left: 28px;
+    font-size: 16px;
+}
+
+.site-nav a:hover {
+    color: #d4af37;
+}
+
+.hero {
+    min-height: 100vh;
+    padding: 140px 20px 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg,
+            rgba(0, 0, 0, .08) 0%,
+            rgba(0, 0, 0, .03) 45%,
+            rgba(0, 0, 0, 0) 100%),
+
+        url("./assets/images/hero-background.png.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-mark {
+    font-size: 76px;
+    color: #d4af37;
+    margin-bottom: 24px;
+    text-shadow: 0 0 35px rgba(212, 175, 55, 0.45);
+}
+
+
+.hero-kicker {
+    color: #d4af37;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(46px, 8vw, 92px);
+    margin: 0 0 24px;
+    line-height: 1.1;
+}
+
+.hero-quote {
+    font-size: clamp(20px, 3vw, 30px);
+    line-height: 1.7;
+    color: #e8dcc2;
+    margin-bottom: 42px;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 15px 34px;
+    border: 1px solid #d4af37;
+    color: #080808;
+    background: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 999px;
+    transition: 0.25s ease;
+}
+
+.hero-button:hover {
+    background: transparent;
+    color: #d4af37;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #b8ad95;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.hero-signature {
+    margin-top: 48px;
+    font-size: 19px;
+    color: #c9b77d;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+.hero-logo {
+    display: block;
+    width: 150px;
+    max-width: 48vw;
+    height: auto;
+    margin: 0 auto 24px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.2));
+}
+
+/* გამორჩეული ლექსის სექცია */
+
+.featured-poems {
+    padding: 110px 7%;
+    text-align: center;
+    background:
+        radial-gradient(circle at center,
+            rgba(212, 175, 55, 0.07),
+            transparent 48%),
+        #080808;
+}
+
+.section-label {
+    margin: 0 0 14px;
+    color: #d4af37;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.featured-poems h2 {
+    margin: 0 0 55px;
+    color: #f5f1e8;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: normal;
+}
+
+/* ერთი ბარათი ცენტრში */
+
+.poem-cards.single-card {
+    display: grid;
+    grid-template-columns: minmax(280px, 440px);
+    justify-content: center;
+}
+
+/* იასამნის ბარათი */
+
+.poem-card {
+    position: relative;
+    min-height: 340px;
+    padding: 34px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    color: #f5f1e8;
+    text-align: left;
+    text-decoration: none;
+
+    border: 1px solid rgba(212, 175, 55, 0.48);
+    border-radius: 14px;
+
+    background:
+        radial-gradient(circle at 72% 46%,
+            rgba(146, 92, 170, 0.28),
+            transparent 38%),
+        linear-gradient(145deg,
+            rgba(212, 175, 55, 0.07),
+            rgba(25, 12, 31, 0.88));
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.45),
+        inset 0 0 35px rgba(146, 92, 170, 0.05);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* იასამნის ფოტოიანი ბარათი */
+
+.lilac-card {
+    background:
+        linear-gradient(rgba(8, 5, 12, 0.34),
+            rgba(8, 5, 12, 0.60)),
+        url("assets/images/lilac-background.jpg");
+
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+/* მზის სხივები */
+
+.lilac-card::before {
+    content: "";
+    position: absolute;
+
+    width: 520px;
+    height: 240px;
+
+    top: -115px;
+    right: -165px;
+
+    background:
+        repeating-linear-gradient(115deg,
+            rgba(255, 225, 140, 0.17) 0px,
+            rgba(255, 225, 140, 0.17) 3px,
+            transparent 3px,
+            transparent 32px);
+
+    transform: rotate(-8deg);
+    filter: blur(1px);
+
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+/* იასამნისფერი მსუბუქი ნათება */
+
+.lilac-card::after {
+    content: "";
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    right: -45px;
+    bottom: -75px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(170, 105, 190, 0.32),
+            rgba(120, 65, 145, 0.12) 45%,
+            transparent 70%);
+
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+/* ბარათის ტექსტები */
+
+.poem-number {
+    position: relative;
+    z-index: 2;
+
+    color: #cbb26a;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.poem-card h3 {
+    position: relative;
+    z-index: 2;
+
+    margin: auto 0;
+
+    color: #ead9ee;
+    font-size: 36px;
+    font-weight: normal;
+
+    text-shadow:
+        0 0 20px rgba(154, 94, 178, 0.25);
+}
+
+.read-more {
+    position: relative;
+    z-index: 2;
+
+    color: #d4af37;
+    font-size: 16px;
+}
+
+/* მაუსის მიტანის ეფექტი */
+
+.poem-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 25px 65px rgba(0, 0, 0, 0.58),
+        0 0 30px rgba(212, 175, 55, 0.10),
+        0 0 45px rgba(137, 78, 157, 0.12);
+}
+
+.poem-card:hover::before {
+    opacity: 1;
+}
+
+/* ტელეფონის ვერსია */
+
+@media (max-width: 700px) {
+
+    .featured-poems {
+        padding: 80px 22px;
+    }
+
+    .poem-card {
+        min-height: 285px;
+        padding: 28px;
+    }
+
+    .poem-card h3 {
+        font-size: 31px;
+    }
+
+    .lilac-card::before {
+        opacity: 0.5;
+        right: -230px;
+    }
+}
+
+/* =================================
+   იასამნის ლექსის გვერდი
+================================= */
+.lilac-poem-page {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(rgba(5, 3, 7, 0.52),
+            rgba(5, 3, 7, 0.72)),
+        url("assets/images/lilac-background.jpg");
+
+    background-size: cover;
+    background-position: 50% 5%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #f5f1e8;
+}
+
+
+
+/* მსუბუქი ოქროსფერი მზის ნათება */
+
+.lilac-poem-page::before {
+    content: "";
+
+    position: fixed;
+
+    top: 70px;
+    right: -80px;
+
+    width: 560px;
+    height: 560px;
+
+    background:
+        radial-gradient(circle,
+            rgba(236, 199, 91, 0.12),
+            transparent 67%);
+
+    pointer-events: none;
+}
+
+
+/* ლექსის მთავარი სივრცე */
+
+.poem-reading {
+    min-height: 100vh;
+
+    padding:
+        150px 22px 90px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+/* ლექსის ფურცელი */
+
+.poem-sheet {
+    position: relative;
+
+    width: min(760px, 100%);
+
+    padding:
+        65px 70px;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.30);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(124, 66, 143, 0.055));
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+
+        inset 0 0 50px rgba(161, 97, 180, 0.035);
+
+    backdrop-filter:
+        blur(4px);
+}
+
+
+/* პატარა ზედა წარწერა */
+
+.poem-category {
+    margin:
+        0 0 18px;
+
+    color:
+        #d4af37;
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        3px;
+}
+
+
+/* სათაური */
+
+.poem-sheet h1 {
+    margin:
+        0;
+
+    color:
+        #eadcf0;
+
+    font-size:
+        clamp(45px,
+            7vw,
+            72px);
+
+    font-weight:
+        normal;
+
+    text-shadow:
+        0 0 30px rgba(172,
+            103,
+            193,
+            0.20);
+}
+
+
+/* სათაურის ქვედა ხაზი */
+
+.poem-divider {
+    width:
+        80px;
+
+    height:
+        1px;
+
+    margin:
+        30px auto 55px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            #d4af37,
+            transparent);
+}
+
+
+/* ლექსის ტექსტი */
+
+.poem-text {
+    width:
+        fit-content;
+
+    max-width:
+        100%;
+
+    margin:
+        0 auto;
+
+    color:
+        #eee7dc;
+
+    text-align:
+        left;
+
+    font-size:
+        clamp(19px,
+            2.2vw,
+            24px);
+
+    line-height:
+        1.85;
+}
+
+
+/* სტროფებს შორის სივრცე */
+
+.poem-text p {
+    margin:
+        0 0 38px;
+}
+
+
+/* ბოლო სტროფის შემდეგ */
+
+.poem-text p:last-child {
+    margin-bottom:
+        0;
+}
+
+
+/* დეკორატიული დასასრული */
+
+.poem-ending {
+    margin:
+        50px 0 32px;
+
+    color:
+        #d4af37;
+
+    font-size:
+        27px;
+}
+
+
+/* უკან დაბრუნების ღილაკი */
+
+.back-to-poems {
+    display:
+        inline-block;
+
+    padding:
+        13px 25px;
+
+    color:
+        #d4af37;
+
+    text-decoration:
+        none;
+
+    border:
+        1px solid rgba(212,
+            175,
+            55,
+            0.65);
+
+    border-radius:
+        5px;
+
+    transition:
+        0.25s ease;
+}
+
+
+.back-to-poems:hover {
+    color:
+        #080808;
+
+    background:
+        #d4af37;
+}
+
+
+/* ტელეფონის ვერსია */
+
+@media (max-width: 700px) {
+
+    .poem-reading {
+        padding:
+            125px 14px 65px;
+    }
+
+
+    .poem-sheet {
+        padding:
+            48px 25px;
+    }
+
+
+    .poem-text {
+        font-size:
+            18px;
+
+        line-height:
+            1.75;
+    }
+
+
+    .poem-text p {
+        margin-bottom:
+            31px;
+    }
+
+}
+
+/* =================================
+   სიდიადის კვარცხლბეკთან
+================================= */
+
+.greatness-poem-page {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(rgba(5, 4, 6, 0.55),
+            rgba(5, 4, 6, 0.78)),
+        url("assets/images/greatness-background.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #f5f1e8;
+}
+
+.greatness-poem-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 72% 38%,
+            rgba(228, 177, 72, 0.14),
+            transparent 28%);
+}
+
+.greatness-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(88, 58, 20, 0.08));
+
+    border: 1px solid rgba(212, 175, 55, 0.34);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.58),
+        inset 0 0 45px rgba(212, 175, 55, 0.035);
+}
+
+.greatness-sheet h1 {
+    color: #f0e0b0;
+    text-shadow: 0 0 26px rgba(212, 175, 55, 0.16);
+}
+
+.pedestal-card {
+    background:
+        linear-gradient(rgba(10, 8, 7, 0.35),
+            rgba(10, 8, 7, 0.65)),
+        url("assets/images/greatness-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+/* ორი გამორჩეული ლექსის ბარათი */
+
+.poem-cards {
+    width: min(950px, 100%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 420px));
+    justify-content: center;
+    gap: 30px;
+}
+
+.poem-card {
+    width: 100%;
+    min-height: 330px;
+}
+
+/* პატარა ეკრანზე ავტომატურად ერთმანეთის ქვემოთ გადავა */
+
+@media (max-width: 750px) {
+    .poem-cards {
+        grid-template-columns: minmax(270px, 420px);
+    }
+}
+
+/* სიდიადის კვარცხლბეკთან — ფართო ლექსის გვერდი */
+
+.greatness-sheet {
+    width: min(1280px, calc(100vw - 60px));
+    max-width: none;
+
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.greatness-sheet .poem-text {
+    display: inline-block;
+
+    width: auto;
+    max-width: none;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+    font-size: clamp(16px, 1.35vw, 21px);
+    line-height: 1.9;
+
+    white-space: nowrap;
+}
+
+
+.greatness-sheet .poem-text p {
+    text-align: left;
+}
+
+/* =================================
+   მთავარი გვერდი — გამორჩეული ლექსების ბარათები
+================================= */
+
+.featured-poems .featured-grid {
+    width: min(920px, 100%);
+    margin: 0 auto;
+
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(260px, 420px)) !important;
+    justify-content: center;
+    gap: 30px;
+}
+
+.featured-poems .poem-card {
+    width: 100%;
+    min-height: 330px;
+}
+
+/* ტელეფონზე ქარდები ბუნებრივად ერთ სვეტად ჩამოვა */
+@media (max-width: 760px) {}
+
+.featured-poems .featured-grid {
+    grid-template-columns: minmax(260px, 420px) !important;
+}
+
+/* საბოლოო განლაგება — გამორჩეული ლექსების ქარდები */
+
+.featured-cards-row {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 28px;
+}
+
+.featured-cards-row>.poem-card {
+    flex: 0 1 360px;
+    max-width: 360px;
+    min-width: 280px;
+    width: 100%;
+
+    min-height: 330px;
+}
+
+.featured-cards-row .pedestal-card h3,
+.featured-cards-row .ritsa-card h3 {
+    font-size: 31px;
+    line-height: 1.25;
+}
+
+/* ტელეფონზე ქარდები ერთმანეთის ქვემოთ ჩამოვა */
+
+@media (max-width: 850px) {
+    .featured-cards-row {
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .featured-cards-row>.poem-card {
+        max-width: 420px;
+    }
+}
+
+/* =================================
+   რიწა და ფარავანი
+================================= */
+
+.ritsa-poem-page {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(rgba(4, 8, 10, 0.46),
+            rgba(4, 8, 10, 0.76)),
+        url("assets/images/ritsa-faravani-background.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #f5f1e8;
+}
+
+.ritsa-poem-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 72% 28%,
+            rgba(212, 175, 55, 0.12),
+            transparent 30%),
+        radial-gradient(circle at 25% 72%,
+            rgba(70, 145, 160, 0.13),
+            transparent 35%);
+}
+
+.ritsa-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(5, 12, 15, 0.76),
+            rgba(18, 36, 42, 0.56));
+
+    border: 1px solid rgba(212, 175, 55, 0.32);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.58),
+        inset 0 0 45px rgba(75, 155, 175, 0.045);
+
+    backdrop-filter: blur(5px);
+}
+
+.ritsa-sheet h1 {
+    color: #e9e3c7;
+    text-shadow:
+        0 0 24px rgba(212, 175, 55, 0.15),
+        0 0 35px rgba(75, 155, 175, 0.10);
+}
+
+/* რიწა და ფარავანი — ტექსტის ცენტრში დაყენება */
+
+.ritsa-sheet .poem-text {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+    font-size: clamp(18px, 1.7vw, 23px);
+    line-height: 1.9;
+}
+
+@media (max-width: 850px) {
+    .ritsa-sheet .poem-text {
+        display: block;
+        width: 100%;
+        font-size: 18px;
+    }
+}
+
+/* რიწა და ფარავანის ქარდი */
+
+.ritsa-card {
+    background:
+        linear-gradient(rgba(4, 8, 10, 0.34),
+            rgba(4, 8, 10, 0.66)),
+        url("assets/images/ritsa-faravani-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ritsa-card::after {
+    content: "";
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    right: -70px;
+    bottom: -90px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(75, 155, 175, 0.28),
+            rgba(40, 90, 110, 0.12) 45%,
+            transparent 70%);
+
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+/* ფოტოს ავტორის მითითება */
+
+.photo-credit {
+    position: fixed;
+    right: 22px;
+    bottom: 18px;
+
+    z-index: 6;
+
+    margin: 0;
+    padding: 7px 12px;
+
+    color: rgba(245, 241, 232, 0.78);
+    font-size: 13px;
+    letter-spacing: 0.4px;
+
+    background: rgba(0, 0, 0, 0.38);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 999px;
+
+    backdrop-filter: blur(6px);
+}
+
+/* ტელეფონზე ცენტრში ჩამოვა */
+
+@media (max-width: 700px) {
+    .photo-credit {
+        right: 50%;
+        bottom: 14px;
+
+        transform: translateX(50%);
+
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
+
+/* =================================
+   გზა ცეცხლამდე
+================================= */
+
+.fire-poem-page {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(rgba(12, 5, 3, 0.48),
+            rgba(12, 5, 3, 0.78)),
+        url("assets/images/fire-background.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #f5f1e8;
+}
+
+.fire-poem-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 78% 32%,
+            rgba(255, 145, 55, 0.18),
+            transparent 28%),
+        radial-gradient(circle at 28% 76%,
+            rgba(212, 175, 55, 0.10),
+            transparent 34%);
+}
+
+.fire-sheet {
+    width: min(1280px, calc(100vw - 60px));
+    max-width: none;
+
+    padding-left: 55px;
+    padding-right: 55px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(16, 8, 5, 0.78),
+            rgba(46, 18, 8, 0.58));
+
+    border: 1px solid rgba(212, 175, 55, 0.34);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.58),
+        inset 0 0 45px rgba(255, 120, 40, 0.05);
+
+    backdrop-filter: blur(5px);
+}
+
+.fire-sheet h1 {
+    color: #f3deaf;
+    text-shadow:
+        0 0 26px rgba(255, 145, 55, 0.18),
+        0 0 34px rgba(212, 175, 55, 0.12);
+}
+
+.fire-sheet .poem-text {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+    font-size: clamp(16px, 1.25vw, 21px);
+    line-height: 1.9;
+
+    white-space: nowrap;
+}
+
+@media (max-width: 850px) {
+    .fire-sheet {
+        width: 100%;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .fire-sheet .poem-text {
+        display: block;
+        width: 100%;
+        white-space: normal;
+        font-size: 18px;
+    }
+}
+
+/* გზა ცეცხლამდე — ქარდი */
+
+.fire-card {
+    background:
+        linear-gradient(rgba(12, 5, 3, 0.36),
+            rgba(12, 5, 3, 0.66)),
+        url("assets/images/fire-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fire-card::after {
+    content: "";
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    right: -70px;
+    bottom: -80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(255, 120, 40, 0.30),
+            rgba(210, 90, 20, 0.12) 45%,
+            transparent 70%);
+
+    filter: blur(14px);
+    pointer-events: none;
+}
+
+/* გზა ცეცხლამდე — ფონის და ქარდის გაღიავება */
+
+.fire-poem-page {
+    background:
+        linear-gradient(rgba(12, 5, 3, 0.24),
+            rgba(12, 5, 3, 0.48)),
+        url("assets/images/fire-background.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.fire-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(16, 8, 5, 0.54),
+            rgba(46, 18, 8, 0.36));
+
+    backdrop-filter: blur(3px);
+}
+
+.fire-card {
+    background:
+        linear-gradient(rgba(12, 5, 3, 0.20),
+            rgba(12, 5, 3, 0.48)),
+        url("assets/images/fire-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* მარჯვენა ყავისფერი/ცეცხლისფერი ლაქის შესუსტება */
+
+.fire-card::after {
+    opacity: none;
+}
+
+/* გზა ცეცხლამდე — უფრო ღია ფონი და ქარდიდან ყავისფერი ლაქის მოშორება */
+
+.fire-poem-page {
+    background:
+        linear-gradient(rgba(12, 5, 3, 0.08),
+            rgba(12, 5, 3, 0.28)),
+        url("assets/images/fire-background.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* ლექსის ჩარჩო — ნაკლებად მუქი, მაგრამ ტექსტისთვის საკმარისი */
+
+.fire-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(8, 6, 5, 0.42),
+            rgba(8, 6, 5, 0.30));
+
+    backdrop-filter: blur(2px);
+}
+
+/* ქარდი — სურათი უფრო გამოჩნდეს */
+
+.fire-card {
+    background:
+        linear-gradient(rgba(8, 5, 3, 0.10),
+            rgba(8, 5, 3, 0.34)),
+        url("assets/images/fire-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ქარდიდან მარჯვენა ყავისფერი/ცეცხლისფერი ლაქის სრული მოშორება */
+
+.fire-card::after {
+    display: none;
+}
+
+/* =================================
+   ლექსების არქივი
+================================= */
+
+.poems-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 75% 25%,
+            rgba(212, 175, 55, 0.08),
+            transparent 32%),
+        #080808;
+
+    color: #f5f1e8;
+}
+
+.poems-main {
+    padding: 150px 7% 90px;
+}
+
+.poems-hero {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.poems-hero h1 {
+    margin: 0 0 22px;
+
+    color: #f5f1e8;
+    font-size: clamp(46px, 7vw, 78px);
+    font-weight: normal;
+}
+
+.poems-intro {
+    max-width: 720px;
+    margin: 0 auto;
+
+    color: #d8ceb7;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.poem-archive {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: 26px;
+}
+
+.archive-card {
+    position: relative;
+    min-height: 210px;
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-decoration: none;
+    color: #f5f1e8;
+
+    border: 1px solid rgba(212, 175, 55, 0.30);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(212, 175, 55, 0.055),
+            rgba(255, 255, 255, 0.018));
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.38);
+
+    transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.archive-card span {
+    color: #cbb26a;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.archive-card h3 {
+    margin: 30px 0;
+
+    color: #f2ead7;
+    font-size: 27px;
+    font-weight: normal;
+    line-height: 1.25;
+}
+
+.archive-card p {
+    margin: 0;
+
+    color: #d4af37;
+    font-size: 15px;
+}
+
+.archive-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 24px 58px rgba(0, 0, 0, 0.52),
+        0 0 26px rgba(212, 175, 55, 0.08);
+}
+
+/* გამორჩეული ლექსების ბარათები არქივში */
+
+.featured-archive-card {
+    background:
+        radial-gradient(circle at 75% 35%,
+            rgba(212, 175, 55, 0.13),
+            transparent 38%),
+        linear-gradient(145deg,
+            rgba(212, 175, 55, 0.075),
+            rgba(255, 255, 255, 0.018));
+}
+
+/* ტელეფონის ვერსია */
+
+@media (max-width: 1000px) {
+    .archive-grid {
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .poems-main {
+        padding: 125px 22px 70px;
+    }
+
+    .archive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .archive-card {
+        min-height: 190px;
+    }
+}
+
+/* ლექსების არქივი — გამორჩეული ლექსების ფოტოფონიანი ბარათები */
+
+body.poems-page .archive-card {
+    overflow: hidden;
+}
+
+body.poems-page .archive-card span,
+body.poems-page .archive-card h3,
+body.poems-page .archive-card p {
+    position: relative;
+    z-index: 2;
+}
+
+/* იასამანი */
+
+body.poems-page .archive-lilac {
+    background:
+        linear-gradient(rgba(8, 5, 12, 0.32),
+            rgba(8, 5, 12, 0.68)),
+        url("assets/images/lilac-background.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* სიდიადის კვარცხლბეკთან */
+
+body.poems-page .archive-pedestal {
+    background:
+        linear-gradient(rgba(9, 8, 7, 0.34),
+            rgba(9, 8, 7, 0.72)),
+        url("assets/images/greatness-background.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* რიწა და ფარავანი */
+
+body.poems-page .archive-ritsa {
+    background:
+        linear-gradient(rgba(4, 8, 10, 0.28),
+            rgba(4, 8, 10, 0.66)),
+        url("assets/images/ritsa-faravani-background.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* გზა ცეცხლამდე */
+
+body.poems-page .archive-fire {
+    background:
+        linear-gradient(rgba(8, 5, 3, 0.10),
+            rgba(8, 5, 3, 0.48)),
+        url("assets/images/fire-background.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* =================================
+   ჩვეულებრივი ლექსების ვიზუალური სტილი
+================================= */
+
+.regular-poem-page {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 78% 24%,
+            rgba(212, 175, 55, 0.14),
+            transparent 30%),
+        radial-gradient(circle at 20% 72%,
+            rgba(120, 85, 35, 0.12),
+            transparent 34%),
+        linear-gradient(145deg,
+            #070707,
+            #11100d 52%,
+            #080808);
+
+    color: #f5f1e8;
+}
+
+.regular-poem-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(115deg,
+            transparent 0%,
+            rgba(212, 175, 55, 0.035) 45%,
+            transparent 75%);
+}
+
+.regular-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(212, 175, 55, 0.055));
+
+    border: 1px solid rgba(212, 175, 55, 0.36);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.56),
+        0 0 40px rgba(212, 175, 55, 0.045),
+        inset 0 0 45px rgba(212, 175, 55, 0.035);
+
+    backdrop-filter: blur(4px);
+}
+
+.regular-sheet h1 {
+    color: #f0dfad;
+
+    text-shadow:
+        0 0 24px rgba(212, 175, 55, 0.18),
+        0 0 40px rgba(212, 175, 55, 0.08);
+}
+
+.regular-sheet .poem-text {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+    color: #f1eadc;
+    font-size: clamp(18px, 1.7vw, 23px);
+    line-height: 1.9;
+}
+
+.regular-sheet .poem-divider {
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(212, 175, 55, 0.95),
+            transparent);
+}
+
+.regular-sheet .poem-ending {
+    color: #d4af37;
+    text-shadow: 0 0 18px rgba(212, 175, 55, 0.22);
+}
+
+/* ლექსების არქივში ჩვეულებრივი ბარათების გაუმჯობესება */
+
+.archive-card:not(.featured-archive-card) {
+    background:
+        radial-gradient(circle at 82% 30%,
+            rgba(212, 175, 55, 0.12),
+            transparent 36%),
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(212, 175, 55, 0.045));
+
+    border-color: rgba(212, 175, 55, 0.34);
+}
+
+.archive-card:not(.featured-archive-card)::before {
+    content: "";
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -75px;
+    bottom: -85px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(212, 175, 55, 0.16),
+            transparent 68%);
+
+    pointer-events: none;
+}
+
+.archive-card:not(.featured-archive-card) h3 {
+    color: #f0dfad;
+}
+
+/* =================================
+   ანათე — გრძელი ტაეპების გასწორება
+================================= */
+
+.anathe-sheet {
+    width: min(1180px, calc(100vw - 60px));
+    max-width: none;
+
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.anathe-sheet .poem-text {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+    font-size: clamp(16px, 1.35vw, 21px);
+    line-height: 1.9;
+
+    white-space: nowrap;
+}
+
+/* ტელეფონზე ტექსტი ისევ ნორმალურად გადატყდეს */
+
+@media (max-width: 850px) {
+    .anathe-sheet {
+        width: 100%;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .anathe-sheet .poem-text {
+        display: block;
+        width: 100%;
+
+        white-space: normal;
+
+        font-size: 18px;
+    }
+}
+
+/* ცეცხლოვანი ქალი — ერთიანი ტექსტი */
+
+.fire-woman-text p {
+    margin: 0 !important;
+}
+
+.fire-woman-text {
+    line-height: 1.75;
+}
+
+/* poems.html — გამორჩეული ლექსების ფოტოფონიანი ბარათები */
+
+body.poems-page .archive-grid a[href="poem2.html"] {
+    background:
+        linear-gradient(rgba(8, 5, 12, 0.30),
+            rgba(8, 5, 12, 0.68)),
+        url("assets/images/lilac-background.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+body.poems-page .archive-grid a[href="poem5.html"] {
+    background:
+        linear-gradient(rgba(9, 8, 7, 0.34),
+            rgba(9, 8, 7, 0.72)),
+        url("assets/images/greatness-background.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+body.poems-page .archive-grid a[href="poem6.html"] {
+    background:
+        linear-gradient(rgba(4, 8, 10, 0.28),
+            rgba(4, 8, 10, 0.66)),
+        url("assets/images/ritsa-faravani-background.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+body.poems-page .archive-grid a[href="poem7.html"] {
+    background:
+        linear-gradient(rgba(8, 5, 3, 0.10),
+            rgba(8, 5, 3, 0.48)),
+        url("assets/images/fire-background.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ტექსტი ფოტოზე ზემოდან დარჩეს */
+
+body.poems-page .archive-grid a[href="poem2.html"] span,
+body.poems-page .archive-grid a[href="poem2.html"] h3,
+body.poems-page .archive-grid a[href="poem2.html"] p,
+body.poems-page .archive-grid a[href="poem5.html"] span,
+body.poems-page .archive-grid a[href="poem5.html"] h3,
+body.poems-page .archive-grid a[href="poem5.html"] p,
+body.poems-page .archive-grid a[href="poem6.html"] span,
+body.poems-page .archive-grid a[href="poem6.html"] h3,
+body.poems-page .archive-grid a[href="poem6.html"] p,
+body.poems-page .archive-grid a[href="poem7.html"] span,
+body.poems-page .archive-grid a[href="poem7.html"] h3,
+body.poems-page .archive-grid a[href="poem7.html"] p {
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================
+   მეთორმეტე ლექსი — თუშური ფოტო
+================================= */
+
+.tushuri-poem-page {
+    background:
+        linear-gradient(rgba(5, 5, 5, 0.30),
+            rgba(5, 5, 5, 0.68)),
+        url("assets/images/tushuri.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.tushuri-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(8, 8, 8, 0.58),
+            rgba(25, 22, 18, 0.42));
+
+    backdrop-filter: blur(3px);
+}
+
+.photo-credit a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.photo-credit a:hover {
     text-decoration: underline;
 }
 
-footer {
-    margin-top: 60px;
-    padding: 20px;
-    background-color: #2c3e50;
-    color: white;
+/* poem12 — თუშური ფოტოფონიანი ბარათი ლექსების არქივში */
+
+body.poems-page .archive-grid a[href="poem12.html"] {
+    background:
+        linear-gradient(rgba(5, 5, 5, 0.26),
+            rgba(5, 5, 5, 0.66)),
+        url("assets/images/tushuri.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+
+    overflow: hidden;
+}
+
+body.poems-page .archive-grid a[href="poem12.html"] span,
+body.poems-page .archive-grid a[href="poem12.html"] h3,
+body.poems-page .archive-grid a[href="poem12.html"] p {
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================
+   აგერგეტებულნი
+================================= */
+
+.gergeti-poem-page {
+    background:
+        linear-gradient(rgba(5, 5, 5, 0.30),
+            rgba(5, 5, 5, 0.68)),
+        url("assets/images/gergeti.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.gergeti-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(8, 8, 8, 0.58),
+            rgba(28, 24, 18, 0.42));
+
+    border: 1px solid rgba(212, 175, 55, 0.36);
+
+    backdrop-filter: blur(3px);
+}
+
+.gergeti-sheet h1 {
+    color: #f0dfad;
+
+    text-shadow:
+        0 0 24px rgba(212, 175, 55, 0.18),
+        0 0 38px rgba(255, 255, 255, 0.08);
+}
+
+/* აგერგეტებულნი — მთავარი გვერდის ქარდი */
+
+.gergeti-card {
+    background:
+        linear-gradient(rgba(5, 5, 5, 0.22),
+            rgba(5, 5, 5, 0.64)),
+        url("assets/images/gergeti.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.gergeti-card::after {
+    content: "";
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    right: -70px;
+    bottom: -90px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(212, 175, 55, 0.20),
+            transparent 68%);
+
+    filter: blur(14px);
+    pointer-events: none;
+}
+
+/* poems.html — აგერგეტებულნი ფოტოფონიანი ბარათი */
+
+body.poems-page .archive-grid a[href="poem16.html"] {
+    background:
+        linear-gradient(rgba(5, 5, 5, 0.24),
+            rgba(5, 5, 5, 0.66)),
+        url("assets/images/gergeti.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+body.poems-page .archive-grid a[href="poem16.html"] span,
+body.poems-page .archive-grid a[href="poem16.html"] h3,
+body.poems-page .archive-grid a[href="poem16.html"] p {
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================
+   მეოცე ლექსი — გრძელი ტაეპების გასწორება
+================================= */
+
+.poem20-sheet {
+    width: min(1280px, calc(100vw - 60px));
+    max-width: none;
+
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.poem20-sheet .poem-text {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+    font-size: clamp(16px, 1.25vw, 21px);
+    line-height: 1.9;
+
+    white-space: nowrap;
+}
+
+/* ტელეფონზე ტექსტი ჩვეულებრივად გადატყდეს */
+
+@media (max-width: 850px) {
+    .poem20-sheet {
+        width: 100%;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .poem20-sheet .poem-text {
+        display: block;
+        width: 100%;
+
+        white-space: normal;
+
+        font-size: 18px;
+    }
+}
+
+/* =================================
+   შავი ხვრელი
+================================= */
+
+.blackhole-poem-page {
+    background:
+        radial-gradient(circle at 50% 35%,
+            rgba(212, 175, 55, 0.10),
+            transparent 34%),
+        linear-gradient(rgba(0, 0, 0, 0.28),
+            rgba(0, 0, 0, 0.72)),
+        url("assets/images/blackhole.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.blackhole-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(0, 0, 0, 0.62),
+            rgba(18, 14, 24, 0.46));
+
+    border: 1px solid rgba(212, 175, 55, 0.36);
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.70),
+        inset 0 0 55px rgba(212, 175, 55, 0.045);
+
+    backdrop-filter: blur(4px);
+}
+
+.blackhole-sheet h1 {
+    color: #f0dfad;
+
+    text-shadow:
+        0 0 26px rgba(212, 175, 55, 0.20),
+        0 0 45px rgba(110, 90, 180, 0.14);
+}
+
+/* მთავარი გვერდი — შავი ხვრელის ქარდი */
+
+.blackhole-card {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.20),
+            rgba(0, 0, 0, 0.68)),
+        url("assets/images/blackhole.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.blackhole-card::after {
+    content: "";
+    position: absolute;
+
+    width: 270px;
+    height: 270px;
+
+    right: -75px;
+    bottom: -95px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(212, 175, 55, 0.18),
+            rgba(80, 60, 150, 0.10) 45%,
+            transparent 70%);
+
+    filter: blur(15px);
+    pointer-events: none;
+}
+
+/* poems.html — შავი ხვრელის ფოტოფონიანი ბარათი */
+
+body.poems-page .archive-grid a[href="poem25.html"] {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.24),
+            rgba(0, 0, 0, 0.70)),
+        url("assets/images/blackhole.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+body.poems-page .archive-grid a[href="poem25.html"] span,
+body.poems-page .archive-grid a[href="poem25.html"] h3,
+body.poems-page .archive-grid a[href="poem25.html"] p {
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================
+   ბადრი მთვარე
+================================= */
+
+.badrimtvare-poem-page {
+    background:
+        linear-gradient(rgba(3, 4, 8, 0.28),
+            rgba(3, 4, 8, 0.72)),
+        url("assets/images/badrimtvare.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.badrimtvare-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(5, 6, 12, 0.62),
+            rgba(18, 20, 35, 0.44));
+
+    border: 1px solid rgba(212, 175, 55, 0.34);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.62),
+        inset 0 0 50px rgba(180, 190, 255, 0.045);
+
+    backdrop-filter: blur(4px);
+}
+
+.badrimtvare-sheet h1 {
+    color: #f0dfad;
+
+    text-shadow:
+        0 0 24px rgba(212, 175, 55, 0.18),
+        0 0 38px rgba(160, 175, 255, 0.10);
+}
+
+/* poems.html — ბადრი მთვარის ფოტოფონიანი ბარათი */
+
+body.poems-page .archive-grid a[href="poem29.html"] {
+    background:
+        linear-gradient(rgba(3, 4, 8, 0.22),
+            rgba(3, 4, 8, 0.68)),
+        url("assets/images/badrimtvare.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+body.poems-page .archive-grid a[href="poem29.html"] span,
+body.poems-page .archive-grid a[href="poem29.html"] h3,
+body.poems-page .archive-grid a[href="poem29.html"] p {
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================
+   32-ე ლექსი — გრძელი ტაეპის გასწორება
+================================= */
+
+.poem32-sheet {
+    width: min(1280px, calc(100vw - 60px));
+    max-width: none;
+
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.poem32-sheet .poem-text {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+    font-size: clamp(16px, 1.25vw, 21px);
+    line-height: 1.9;
+
+    white-space: nowrap;
+}
+
+/* ტელეფონზე ჩვეულებრივად გადატყდეს */
+
+@media (max-width: 850px) {
+    .poem32-sheet {
+        width: 100%;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .poem32-sheet .poem-text {
+        display: block;
+        width: 100%;
+
+        white-space: normal;
+
+        font-size: 18px;
+    }
+}
+
+/* =================================
+   მეთორმეტე ლექსი — გრძელი ტაეპების გასწორება
+================================= */
+
+.tushuri-sheet {
+    width: min(1280px, calc(100vw - 60px));
+    max-width: none;
+
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.tushuri-sheet .poem-text {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+    font-size: clamp(16px, 1.25vw, 21px);
+    line-height: 1.9;
+
+    white-space: nowrap;
+}
+
+@media (max-width: 850px) {
+    .tushuri-sheet {
+        width: 100%;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .tushuri-sheet .poem-text {
+        display: block;
+        width: 100%;
+
+        white-space: normal;
+
+        font-size: 18px;
+    }
+}
+
+/* =================================
+   დიდებულ ლადო ასათიანს
+================================= */
+
+.lado-poem-page {
+    background:
+        linear-gradient(rgba(5, 5, 5, 0.30),
+            rgba(5, 5, 5, 0.70)),
+        url("assets/images/lado.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.lado-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(8, 8, 8, 0.62),
+            rgba(32, 27, 20, 0.44));
+
+    border: 1px solid rgba(212, 175, 55, 0.36);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.62),
+        inset 0 0 50px rgba(212, 175, 55, 0.045);
+
+    backdrop-filter: blur(4px);
+}
+
+.lado-sheet h1 {
+    color: #f0dfad;
+
+    text-shadow:
+        0 0 24px rgba(212, 175, 55, 0.20),
+        0 0 38px rgba(255, 255, 255, 0.08);
+}
+
+/* poems.html — დიდებულ ლადო ასათიანს ფოტოფონიანი ბარათი */
+
+body.poems-page .archive-grid a[href="poem37.html"] {
+    background:
+        linear-gradient(rgba(5, 5, 5, 0.26),
+            rgba(5, 5, 5, 0.68)),
+        url("assets/images/lado.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+body.poems-page .archive-grid a[href="poem37.html"] span,
+body.poems-page .archive-grid a[href="poem37.html"] h3,
+body.poems-page .archive-grid a[href="poem37.html"] p {
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================
+   დიდებულ ლადო ასათიანს — გრძელი ტაეპების გასწორება
+================================= */
+
+.lado-sheet {
+    width: min(1280px, calc(100vw - 60px));
+    max-width: none;
+
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+.lado-sheet .poem-text {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+
+    margin: 0 auto;
+
+    text-align: left;
+
+    font-size: clamp(16px, 1.25vw, 21px);
+    line-height: 1.9;
+
+    white-space: nowrap;
+}
+
+/* ტელეფონზე ტექსტი ჩვეულებრივად გადატყდეს */
+
+@media (max-width: 850px) {
+    .lado-sheet {
+        width: 100%;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .lado-sheet .poem-text {
+        display: block;
+        width: 100%;
+
+        white-space: normal;
+
+        font-size: 18px;
+    }
+}
+
+/* =================================
+   თოვლი თბილისის
+================================= */
+
+.tovli-poem-page {
+    background:
+        linear-gradient(rgba(4, 6, 10, 0.30),
+            rgba(4, 6, 10, 0.72)),
+        url("assets/images/tovli.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.tovli-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(6, 8, 12, 0.62),
+            rgba(20, 26, 36, 0.44));
+
+    border: 1px solid rgba(212, 175, 55, 0.32);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.62),
+        inset 0 0 50px rgba(190, 210, 255, 0.055);
+
+    backdrop-filter: blur(4px);
+}
+
+.tovli-sheet h1 {
+    color: #f1e7c9;
+
+    text-shadow:
+        0 0 24px rgba(212, 175, 55, 0.16),
+        0 0 38px rgba(180, 205, 255, 0.13);
+}
+
+/* poems.html — თოვლი თბილისის ფოტოფონიანი ბარათი */
+
+body.poems-page .archive-grid a[href="poem42.html"] {
+    background:
+        linear-gradient(rgba(4, 6, 10, 0.22),
+            rgba(4, 6, 10, 0.68)),
+        url("assets/images/tovli.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+body.poems-page .archive-grid a[href="poem42.html"] span,
+body.poems-page .archive-grid a[href="poem42.html"] h3,
+body.poems-page .archive-grid a[href="poem42.html"] p {
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================
+   კონტაქტის გვერდი
+================================= */
+
+.contact-page {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 78% 24%,
+            rgba(212, 175, 55, 0.13),
+            transparent 32%),
+        radial-gradient(circle at 18% 74%,
+            rgba(120, 85, 35, 0.12),
+            transparent 34%),
+        linear-gradient(145deg,
+            #070707,
+            #11100d 55%,
+            #080808);
+
+    color: #f5f1e8;
+}
+
+.contact-main {
+    min-height: 100vh;
+
+    padding: 150px 22px 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-hero {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.contact-hero h1 {
+    margin: 0 0 22px;
+
+    color: #f5f1e8;
+    font-size: clamp(48px, 7vw, 82px);
+    font-weight: normal;
+}
+
+.contact-intro {
+    max-width: 720px;
+    margin: 0 auto;
+
+    color: #d8ceb7;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.contact-card {
+    width: min(760px, 100%);
+
+    padding: 48px;
+
+    border: 1px solid rgba(212, 175, 55, 0.34);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(212, 175, 55, 0.055));
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.56),
+        0 0 40px rgba(212, 175, 55, 0.045),
+        inset 0 0 45px rgba(212, 175, 55, 0.035);
+
+    backdrop-filter: blur(4px);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    padding: 24px 0;
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.contact-item:first-child {
+    padding-top: 0;
+}
+
+.contact-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #080808;
+    background: #d4af37;
+
+    border-radius: 50%;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    box-shadow:
+        0 0 24px rgba(212, 175, 55, 0.18);
+}
+
+.contact-item h3 {
+    margin: 0 0 8px;
+
+    color: #f0dfad;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.contact-item a {
+    color: #f5f1e8;
+    text-decoration: none;
+
+    font-size: 17px;
+    word-break: break-word;
+}
+
+.contact-item a:hover {
+    color: #d4af37;
+}
+
+.contact-back {
+    margin-top: 36px;
+}
+
+@media (max-width: 650px) {
+    .contact-main {
+        padding: 125px 18px 70px;
+    }
+
+    .contact-card {
+        padding: 32px 24px;
+    }
+
+    .contact-item {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .contact-icon {
+        width: 44px;
+        height: 44px;
+
+        font-size: 20px;
+    }
+
+    .contact-item a {
+        font-size: 15px;
+    }
+}
+
+/* =================================
+   ჩემ შესახებ
+================================= */
+
+.about-page {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 76% 24%,
+            rgba(212, 175, 55, 0.13),
+            transparent 32%),
+        radial-gradient(circle at 18% 76%,
+            rgba(120, 85, 35, 0.12),
+            transparent 34%),
+        linear-gradient(145deg,
+            #070707,
+            #11100d 55%,
+            #080808);
+
+    color: #f5f1e8;
+}
+
+.about-main {
+    min-height: 100vh;
+
+    padding: 150px 7% 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-hero {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.about-hero h1 {
+    margin: 0 0 18px;
+
+    color: #f5f1e8;
+    font-size: clamp(48px, 7vw, 86px);
+    font-weight: normal;
+}
+
+.about-subtitle {
+    margin: 0;
+
+    color: #d4af37;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.about-card {
+    width: min(900px, 100%);
+
+    padding: 56px 62px;
+
+    border: 1px solid rgba(212, 175, 55, 0.34);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(212, 175, 55, 0.055));
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.56),
+        0 0 40px rgba(212, 175, 55, 0.045),
+        inset 0 0 45px rgba(212, 175, 55, 0.035);
+
+    backdrop-filter: blur(4px);
+}
+
+.about-quote {
+    margin-bottom: 42px;
+
+    color: #f0dfad;
+    text-align: center;
+    font-size: clamp(25px, 3vw, 36px);
+    line-height: 1.6;
+    font-style: italic;
+
+    text-shadow:
+        0 0 24px rgba(212, 175, 55, 0.18);
+}
+
+.about-text p {
+    margin: 0 0 26px;
+
+    color: #e7ddc8;
+    font-size: 19px;
+    line-height: 1.9;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+.about-details {
+    width: min(1100px, 100%);
+
+    margin-top: 42px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.about-detail-card {
+    min-height: 230px;
+
+    padding: 28px;
+
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 14px;
+
+    background:
+        radial-gradient(circle at 80% 28%,
+            rgba(212, 175, 55, 0.10),
+            transparent 38%),
+        linear-gradient(145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(212, 175, 55, 0.035));
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.38);
+}
+
+.about-detail-card span {
+    color: #cbb26a;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.about-detail-card h3 {
+    margin: 32px 0 16px;
+
+    color: #f0dfad;
+    font-size: 27px;
+    font-weight: normal;
+}
+
+.about-detail-card p {
+    margin: 0;
+
+    color: #d8ceb7;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.about-back {
+    margin-top: 46px;
+}
+
+/* მობილურის ვერსია */
+
+@media (max-width: 900px) {
+    .about-details {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        padding: 44px 34px;
+    }
+}
+
+@media (max-width: 650px) {
+    .about-main {
+        padding: 125px 22px 70px;
+    }
+
+    .about-card {
+        padding: 36px 24px;
+    }
+
+    .about-text p {
+        font-size: 17px;
+    }
+
+    .about-subtitle {
+        font-size: 20px;
+    }
+}
+
+/* =================================
+   მობილურის საბოლოო გასწორება
+================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    /* ზედა მენიუ */
+
+    .site-header {
+        padding: 14px 18px;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .site-logo {
+        font-size: 19px;
+        text-align: center;
+    }
+
+    .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 9px 15px;
+    }
+
+    .site-nav a {
+        margin-left: 0;
+        font-size: 14px;
+    }
+
+
+    /* მთავარი გვერდი */
+
+    .hero {
+        min-height: 100vh;
+
+        padding:
+            165px 18px 70px;
+    }
+
+    .hero-logo {
+        width: 120px;
+        max-width: 45vw;
+
+        margin-bottom: 18px;
+    }
+
+    .hero-kicker {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 12vw, 56px);
+    }
+
+    .hero-quote {
+        font-size: 19px;
+        line-height: 1.65;
+    }
+
+    .hero-signature {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .hero-button {
+        padding: 13px 26px;
+        font-size: 15px;
+    }
+
+
+    /* გამორჩეული ლექსების ქარდები */
+
+    .featured-poems {
+        padding: 75px 18px;
+    }
+
+    .featured-poems h2 {
+        font-size: clamp(32px, 10vw, 45px);
+        margin-bottom: 38px;
+    }
+
+    .featured-cards-row {
+        width: 100%;
+
+        flex-direction: column !important;
+        align-items: center;
+
+        gap: 22px;
+    }
+
+    .featured-cards-row>.poem-card {
+        width: 100%;
+        max-width: 420px;
+        min-width: 0;
+
+        min-height: 285px;
+    }
+
+    .poem-card h3 {
+        font-size: 29px;
+        line-height: 1.25;
+    }
+
+
+    /* ლექსის გვერდები */
+
+    .poem-reading {
+        padding:
+            150px 14px 70px !important;
+    }
+
+    .poem-sheet {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        padding:
+            42px 22px !important;
+    }
+
+    .poem-sheet h1 {
+        font-size: clamp(33px, 10vw, 48px);
+        line-height: 1.25;
+    }
+
+    .poem-divider {
+        margin:
+            24px auto 40px;
+    }
+
+    .poem-text {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        font-size: 17px !important;
+        line-height: 1.78 !important;
+
+        white-space: normal !important;
+    }
+
+    .poem-text p {
+        margin-bottom: 30px;
+    }
+
+    .back-to-poems {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+
+    /* ლექსების არქივი */
+
+    .poems-main {
+        padding:
+            150px 18px 70px;
+    }
+
+    .poems-hero {
+        margin-bottom: 45px;
+    }
+
+    .poems-hero h1 {
+        font-size: clamp(38px, 12vw, 56px);
+    }
+
+    .poems-intro {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .archive-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .archive-card {
+        min-height: 180px;
+        padding: 24px;
+    }
+
+    .archive-card h3 {
+        font-size: 25px;
+        line-height: 1.3;
+    }
+
+
+    /* About გვერდი */
+
+    .about-main {
+        padding:
+            150px 18px 70px;
+    }
+
+    .about-hero h1 {
+        font-size: clamp(38px, 12vw, 56px);
+    }
+
+    .about-subtitle {
+        font-size: 19px;
+    }
+
+    .about-card {
+        padding:
+            36px 24px;
+    }
+
+    .about-quote {
+        font-size: 24px;
+        line-height: 1.55;
+    }
+
+    .about-text p {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .about-details {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Contact გვერდი */
+
+    .contact-main {
+        padding:
+            150px 18px 70px;
+    }
+
+    .contact-hero h1 {
+        font-size: clamp(38px, 12vw, 56px);
+    }
+
+    .contact-intro {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .contact-card {
+        padding:
+            32px 24px;
+    }
+
+    .contact-item {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .contact-icon {
+        width: 44px;
+        height: 44px;
+
+        font-size: 20px;
+    }
+
+    .contact-item a {
+        font-size: 15px;
+    }
+
+
+    /* ფოტოს ავტორის წარწერა */
+
+    .photo-credit {
+        right: 50%;
+        bottom: 14px;
+
+        transform: translateX(50%);
+
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
+
+/* =================================
+   მობილური — ფონების დაბრუნება ბუნებრივ ზომაზე
+================================= */
+
+@media (max-width: 768px) {
+
+    .hero,
+    .lilac-poem-page,
+    .greatness-poem-page,
+    .ritsa-poem-page,
+    .fire-poem-page,
+    .tushuri-poem-page,
+    .gergeti-poem-page,
+    .blackhole-poem-page,
+    .badrimtvare-poem-page,
+    .lado-poem-page,
+    .tovli-poem-page {
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    @media (max-width: 768px) {
+
+        @media (max-width: 768px) {
+
+            .hero {
+                min-height: 100vh;
+
+                padding:
+                    100px 18px 50px;
+
+                background-size: auto 40% !important;
+                background-position: center center !important;
+                background-repeat: no-repeat !important;
+                background-color: #080808;
+            }
+
+        }
+    }
+
+}
+
+/* მობილურზე მთავარი ლოგოს დაპატარავება */
+
+@media (max-width: 768px) {
+
+    .hero-logo {
+        width: 50px !important;
+        max-width: 35vw !important;
+
+        margin-bottom: 14px !important;
+    }
+
+}
+
+/* მობილური — სიდიადის კვარცხლბეკთან ფონის სწორად დაყენება */
+
+@media (max-width: 768px) {
+
+    .greatness-poem-page {
+        background:
+            linear-gradient(rgba(5, 4, 6, 0.42),
+                rgba(5, 4, 6, 0.76)),
+            url("assets/images/greatness-background.jpg");
+
+        background-size: auto 70vh !important;
+        background-position: center top !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+
+        background-color: #080808;
+    }
+
+}
+
+/* რიწა და ფარავანი — ლექსის ჩარჩოს გამჭვირვალობა მობილურზე */
+
+@media (max-width: 768px) {
+
+    .ritsa-sheet {
+        background:
+            linear-gradient(145deg,
+                rgba(5, 12, 15, 0.46),
+                rgba(18, 36, 42, 0.28)) !important;
+
+        backdrop-filter: blur(1px) !important;
+    }
+
+}
+
+/* მობილური — თუშური ხალიჩის ფონის ოდნავ დაპატარავება */
+
+@media (max-width: 768px) {
+
+    .tushuri-poem-page {
+        background-size: 210% auto !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-color: #080808;
+    }
+
+}
+
+/* თუშური ხალიჩა — ლექსის ჩარჩოს გამჭვირვალობა მობილურზე */
+@media (max-width: 768px) {
+
+    .tushuri-sheet {
+        background:
+            linear-gradient(145deg,
+                rgba(5, 12, 15, 0.46),
+                rgba(18, 36, 42, 0.28)) !important;
+
+        backdrop-filter: blur(1px) !important;
+    }
+
+}
+
+/* მობილური — აგერგეტებულნი ნამდვილი ფონივით */
+
+@media (max-width: 768px) {
+
+    .gergeti-poem-page {
+        background:
+            linear-gradient(rgba(5, 5, 5, 0.18),
+                rgba(5, 5, 5, 0.58)),
+            url("assets/images/gergeti.jpg");
+
+        background-size: cover !important;
+        background-position: 40% center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+    }
+
+    .gergeti-sheet {
+        background:
+            linear-gradient(145deg,
+                rgba(8, 8, 8, 0.38),
+                rgba(28, 24, 18, 0.22)) !important;
+
+        backdrop-filter: blur(1px) !important;
+    }
+
+}
+
+/* მობილური — დიდებულ ლადო ასათიანს, ოდნავ დაპატარავებული ფონი */
+
+@media (max-width: 768px) {
+
+    .lado-poem-page {
+        background:
+            linear-gradient(rgba(5, 5, 5, 0.30),
+                rgba(5, 5, 5, 0.70)),
+            url("assets/images/lado.jpg");
+
+        background-size: 400% auto !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+
+        background-color: #080808;
+    }
+
+}
+
+/* =================================
+   მობილური — ყველა ტაეპი ერთ ხაზზე
+================================= */
+
+@media (max-width: 768px) {
+
+    .poem-sheet {
+        overflow-x: auto !important;
+    }
+
+    .poem-text {
+        display: inline-block !important;
+
+        width: max-content !important;
+        max-width: none !important;
+
+        white-space: nowrap !important;
+
+        font-size: 16px !important;
+        line-height: 1.8 !important;
+
+        text-align: left !important;
+    }
+
+    .poem-text p {
+        white-space: nowrap !important;
+    }
+
 }
