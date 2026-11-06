@@ -3178,3 +3178,81 @@ body.poems-page .archive-grid a[href="poem42.html"] p {
         padding: 15px 16px;
     }
 }
+
+/* ==============================
+   საძიებელი — მობილურის დიზაინი
+============================== */
+
+@media (max-width: 600px) {
+
+    .poem-search {
+        width: calc(100% - 36px);
+        max-width: 100%;
+        margin: 28px auto 40px;
+        box-sizing: border-box;
+    }
+
+    #poemSearch {
+        display: block;
+        width: 100%;
+        min-height: 56px;
+        padding: 16px 18px;
+
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        appearance: none;
+
+        background: rgba(18, 18, 18, 0.95);
+        color: #f5e9cc;
+
+        border: 1px solid #b89b5e;
+        border-radius: 16px;
+
+        font-family: inherit;
+        font-size: 16px;
+        line-height: 1.4;
+
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+        outline: none;
+    }
+
+    #poemSearch::placeholder {
+        color: #b9a989;
+        opacity: 1;
+    }
+
+    #poemSearch:focus {
+        border-color: #e5c57b;
+        box-shadow: 0 0 18px rgba(229, 197, 123, 0.3);
+    }
+
+    .search-results {
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+
+        max-height: 280px;
+        overflow-y: auto;
+
+        border-radius: 14px;
+        background: #1b1b1b;
+
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    .search-results a {
+        display: block;
+        padding: 16px;
+
+        font-size: 15px;
+        line-height: 1.5;
+
+        color: #f5e9cc;
+        text-decoration: none;
+    }
+
+    .search-results a:active {
+        background: rgba(212, 175, 100, 0.25);
+    }
+
+}
