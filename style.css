@@ -2885,7 +2885,7 @@ body.poems-page .archive-grid a[href="poem42.html"] p {
     .blackhole-poem-page,
     .badrimtvare-poem-page,
     .lado-poem-page,
-    .tovli-poem-page {
+    .tovli-poem-page .lisistba-poem-page {
         background-size: cover !important;
         background-position: center center !important;
         background-repeat: no-repeat !important;
@@ -3255,4 +3255,63 @@ body.poems-page .archive-grid a[href="poem42.html"] p {
         background: rgba(212, 175, 100, 0.25);
     }
 
+}
+
+/* =================================
+   ლისის ტბა
+================================= */
+
+.lisistba-poem-page {
+    background:
+        linear-gradient(rgba(4, 6, 10, 0.30),
+            rgba(4, 6, 10, 0.72)),
+        url("assets/images/lisistba.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.lisistba-sheet {
+    background:
+        linear-gradient(145deg,
+            rgba(6, 8, 12, 0.62),
+            rgba(20, 26, 36, 0.44));
+
+    border: 1px solid rgba(212, 175, 55, 0.32);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.62),
+        inset 0 0 50px rgba(190, 210, 255, 0.055);
+
+    backdrop-filter: blur(4px);
+}
+
+.lisistba-sheet h1 {
+    color: #f1e7c9;
+
+    text-shadow:
+        0 0 24px rgba(212, 175, 55, 0.16),
+        0 0 38px rgba(180, 205, 255, 0.13);
+}
+
+/* poems.html — ლისის ტბა ფოტოფონიანი ბარათი */
+
+body.poems-page .archive-grid a[href="poem46.html"] {
+    background:
+        linear-gradient(rgba(4, 6, 10, 0.22),
+            rgba(4, 6, 10, 0.68)),
+        url("assets/images/lisistba.jpg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+body.poems-page .archive-grid a[href="poem46.html"] span,
+body.poems-page .archive-grid a[href="poem46.html"] h3,
+body.poems-page .archive-grid a[href="poem46.html"] p {
+    position: relative;
+    z-index: 2;
 }
